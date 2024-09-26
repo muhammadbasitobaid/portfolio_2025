@@ -13,7 +13,7 @@ const Icon = ({ icon: IconComponent, theme = "light", size = "24", className = "
   );
 
   return (
-    <IconContext.Provider value={{ color, className: combinedClassName }}>
+    <IconContext.Provider value={{ color, className: combinedClassName, size: `${size}px`}}>
       <IconComponent />
     </IconContext.Provider>
   );

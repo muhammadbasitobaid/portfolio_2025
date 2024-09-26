@@ -3,7 +3,7 @@ import Icon from "src/components/shared/Icon";
 
 const ToolIcon = () => {
   return (
-      <Icon icon={FiTool} theme="dark" size="12" className="text-red-500" />
+      <Icon icon={FiTool} theme="dark" className="text-red-500" />
   );
 };
 

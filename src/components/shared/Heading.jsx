@@ -6,6 +6,7 @@ const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle }) => {
   const titleClass = clsx(
     'text-gray-900',
     {
+      'text-8xl leading-none': size === 'xl',   // Large size (approx. 94px)
       'text-6xl leading-none': size === 'lg',   // Large size (approx. 94px)
       'text-5xl leading-none': size === 'md',   // Medium size (approx. 70px)
       'text-2xl leading-none': size === 'sm',   // Small size (approx. 26px)
@@ -21,12 +22,13 @@ const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle }) => {
   const subtitleClass = clsx(
     'text-gray-600',
     {
+      'text-8xl leading-[0.9]': size === 'xl',    // Large subtitle (approx. 94px)
       'text-6xl leading-[0.9]': size === 'lg',    // Large subtitle (approx. 94px)
       'text-base leading-[0.9]': size === 'md' || size === 'sm',  // Medium/Small subtitle (16px)
       'text-xs leading-[0.9]': size === 'xs',   // Extra Small subtitle (12px)
     },
     {
-      'font-bold': size === 'lg',
+      'font-bold': size === 'lg' || size === 'xl',
     }
   );
 
@@ -45,7 +47,7 @@ Heading.defaultProps = {
 };
 
 Heading.propTypes = {
-  size: PropTypes.oneOf(['lg', 'md', 'sm', 'xs']),
+  size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
   fontWeight: PropTypes.oneOf(['bold', 'medium', 'thin']),
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,

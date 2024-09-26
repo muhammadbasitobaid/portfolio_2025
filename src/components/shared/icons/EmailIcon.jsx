@@ -3,7 +3,7 @@ import Icon from "src/components/shared/Icon";
 
 const EmailIcon = () => {
   return (
-    <Icon icon={BsEnvelope} theme="light" size="10" className="text-gray-500" />
+    <Icon icon={BsEnvelope} theme="light" className="text-gray-500" />
   );
 };
 

@@ -5,11 +5,9 @@ import Navbar from "src/components/Navbar";
 
 const App = () => {
   return (
-    <div className="bg-black flex flex-col items-center">
+    <div className="flex flex-col items-center">
   <Navbar/>
-    <Container>
-    Hello
-    </Container>
+    <Container/>
     </div>
   );
 };

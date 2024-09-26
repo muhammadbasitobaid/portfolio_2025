@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-white/[0.2] text-white px-8 py-2 my-4 rounded-lg">
+    <div className="bg-white/[0.2] text-white px-4 py-2 my-4 rounded-xl">
       <nav className="flex space-x-6">
         {navList.map((item, index) => (
           <a href={item.href} key={index} className="flex items-center space-x-2" title={item.text}>

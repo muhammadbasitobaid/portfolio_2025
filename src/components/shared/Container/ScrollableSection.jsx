@@ -1,10 +1,12 @@
 import React from 'react'
 import Profile from "src/components/Profile"
+import ContactUs from "src/components/ContactUs"
 
 const ScrollableSection = () => {
   return (
-    <div className="bg-slate-800 flex-1 min-h-[200vh]">
+    <div className="flex-1">
       <Profile/>
+    <ContactUs/>
     </div>
   )
 }

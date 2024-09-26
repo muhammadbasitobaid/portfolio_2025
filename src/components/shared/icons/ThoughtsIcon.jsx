@@ -3,7 +3,7 @@ import Icon from "src/components/shared/Icon";
 
 const ThoughtsIcon = () => {
   return (
-      <Icon icon={FiEdit2} theme="dark" size="10" className="text-purple-500" />
+      <Icon icon={FiEdit2} theme="dark" className="text-purple-500" />
   );
 };
 
