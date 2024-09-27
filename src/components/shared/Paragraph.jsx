@@ -1,8 +1,9 @@
 import React from 'react';
+import clsx from 'clsx';
 
-const Paragraph = ({ children }) => {
+const Paragraph = ({ children, className }) => {
   return (
-    <div className="text-base md:text-lg lg:text-xl leading-normal">
+    <div className={clsx("text-base md:text-lg lg:text-xl leading-normal", className)}>
       {children}
     </div>
   );

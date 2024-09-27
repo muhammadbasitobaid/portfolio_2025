@@ -9,7 +9,6 @@ const Icon = ({ icon: IconComponent, theme = "light", size = "24", className = "
 
   const combinedClassName = clsx(
     className,  // any custom classes passed
-    `w-${size}` // dynamic Tailwind width and height classes
   );
 
   return (

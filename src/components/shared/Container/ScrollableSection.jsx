@@ -4,7 +4,7 @@ import ContactUs from "src/components/ContactUs"
 
 const ScrollableSection = () => {
   return (
-    <div className="flex-1">
+    <div className="">
       <Profile/>
     <ContactUs/>
     </div>

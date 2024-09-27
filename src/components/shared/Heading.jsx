@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle }) => {
   const titleClass = clsx(
-    'text-gray-900',
+    'text-primary',
     {
       'text-8xl leading-none': size === 'xl',   // Large size (approx. 94px)
       'text-6xl leading-none': size === 'lg',   // Large size (approx. 94px)
@@ -20,7 +20,7 @@ const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle }) => {
   );
 
   const subtitleClass = clsx(
-    'text-gray-600',
+    'text-secondary',
     {
       'text-8xl leading-[0.9]': size === 'xl',    // Large subtitle (approx. 94px)
       'text-6xl leading-[0.9]': size === 'lg',    // Large subtitle (approx. 94px)
