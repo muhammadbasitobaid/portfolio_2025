@@ -1,9 +1,9 @@
-import { PiGithubLogoThin } from "react-icons/pi";
+import { FaGithub } from "react-icons/fa";
 import Icon from "src/components/shared/Icon"; 
 
 const GithubIcon = () => {
   return (
-    <Icon icon={PiGithubLogoThin} theme="light" size="10" className="text-black" />
+    <Icon icon={FaGithub} theme="light" size="20" className="text-black" />
   );
 };
 

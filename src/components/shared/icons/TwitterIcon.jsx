@@ -1,9 +1,9 @@
-import { CiTwitter } from "react-icons/ci";
+import { FaTwitter } from "react-icons/fa6";
 import Icon from "src/components/shared/Icon"; 
 
 const TwitterIcon = () => {
   return (
-      <Icon icon={CiTwitter} theme="light" size="10" className="text-blue-400" />
+      <Icon icon={FaTwitter} theme="light"  size="22" className="text-blue-400" />
   );
 };
 
