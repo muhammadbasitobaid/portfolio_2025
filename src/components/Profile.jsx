@@ -1,78 +1,39 @@
-import Heading from "src/components/shared/Heading"
-import Paragraph from "src/components/shared/Paragraph"
-import InfoCard from "src/components/shared/InfoCard"
-import ToolCard from "src/components/shared/ToolCard"
-
-import {stats, projectList, experienceList, tools} from "src/constants"
+import Heading from "src/components/shared/Heading";
+import Paragraph from "src/components/shared/Paragraph";
+import  { socialList } from "src/constants"
 
 const Profile = () => {
 
   return (
-    <div className="flex flex-col gap-8">
-      <Heading
-        size="xl"
-        fontWeight="bold"
-        title="PRODUCT"
-        subtitle="DESIGNER"/>
-    <Paragraph className="text-white">Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.</Paragraph>
 
-    <div className="flex gap-2">
-    {
-      stats.map(({key, value}) => <div className="w-[20%]"><Heading size="md" fontWeight="bold" title={value} subtitle={key}/></div>)
-    }
-
-    </div>
+    <div className="text-center flex flex-col items-center gap-y-4 bg-white py-6 px-10 rounded-lg sticky top-20 w-[50%]">
+      <img 
+        src={'/images/profile.jpg'} 
+        alt={'Profile Pic'} 
+        className="!w-[240px] !h-[284px] rounded-lg object-cover" 
+      />
 
       <Heading
-        size="xl"
+        size="md"
         fontWeight="bold"
-        title="12 YEAR OF"
-        subtitle="EXPERIENCE"/>
-      <div className="flex flex-col items-center gap-6">
-        {experienceList.map((experience, index) => (
-          <InfoCard
-            key={index}
-            title={experience.title}
-            description={experience.description}
-            dateRange={experience.dateRange}
-            link={experience.link}
-          />
-      ))}
+        title="Evil Minion"
+        subtitle=""
+        variant="light"
+      />
+
+      <Paragraph className="!leading-none text-center !text-base">
+        Experienced full stack developer who has built several LLM solutions.
+      </Paragraph>
+
+      <nav className="flex justify-center gap-2">
+        {socialList.map((item, index) => (
+          <a href={item.href} key={index} className="flex items-center" title={item.text}>
+            {item.icon}
+          </a>
+        ))}
+      </nav>
+
       </div>
-    <Heading
-      size="xl"
-      fontWeight="bold"
-      title="RECENT"
-      subtitle="PROJECTS"/>
-    <div className="flex flex-col gap-6 items-center">
-      {projectList.map((experience, index) => (
-        <InfoCard
-          key={index}
-          title={experience.title}
-          description={experience.description}
-          dateRange={experience.dateRange} // If needed, you can add dateRange here
-          link={experience.link}
-          image={experience.image}
-        />
-      ))}
-    </div>
-
-    <Heading
-      size="xl"
-      fontWeight="bold"
-      title="PREMIUM"
-      subtitle="TOOLS"/>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {tools.map((tool) => (
-        <ToolCard
-          key={tool.icon}
-          icon={tool.icon}
-          title={tool.title}
-          description={tool.description}
-        />
-      ))}
-    </div>
-    </div>
   )
 }
 

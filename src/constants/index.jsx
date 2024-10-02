@@ -1,3 +1,8 @@
+import GithubIcon from "src/components/shared/icons/GithubIcon";
+import LinkedInIcon from "src/components/shared/icons/LinkedInIcon";
+import TwitterIcon from "src/components/shared/icons/TwitterIcon";
+import UpworkIcon from "src/components/shared/icons/UpworkIcon";
+
 export const stats = [
   {
     key: "YEARS OF EXPERIENCE",
@@ -78,4 +83,12 @@ export const tools = [
     title: 'Notion',
     description: 'Workspace Collaboration',
   },
+];
+
+
+export const socialList = [
+  { icon: <GithubIcon />, text: 'Github', href: '#' },
+  { icon: <LinkedInIcon />, text: 'LinkedIn', href: '#' },
+  { icon: <TwitterIcon />, text: 'X', href: '#' },
+  { icon: <UpworkIcon />, text: 'Upwork', href: '#' },
 ];
