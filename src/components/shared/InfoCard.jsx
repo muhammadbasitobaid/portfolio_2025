@@ -2,7 +2,7 @@ import React from 'react';
 
 const InfoCard = ({ title, description, dateRange, link, image }) => {
   return (
-    <div className="flex items-center text-white py-6 relative w-full bg-black rounded-lg shadow-lg">
+    <div className="flex items-center text-white relative w-full bg-black rounded-lg shadow-lg">
       {/* Optional Image */}
       {image && (
         <div className="mr-6">

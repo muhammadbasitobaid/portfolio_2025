@@ -1,10 +1,12 @@
-import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle }) => {
+const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle, variant = 'dark' }) => {
   const titleClass = clsx(
-    'text-primary',
+    {
+      'text-primary': variant === 'dark',
+      'text-black': variant === 'light'
+    },
     {
       'text-8xl leading-none': size === 'xl',   // Large size (approx. 94px)
       'text-6xl leading-none': size === 'lg',   // Large size (approx. 94px)
@@ -48,6 +50,7 @@ Heading.defaultProps = {
 
 Heading.propTypes = {
   size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
+  variant: PropTypes.oneOf(['dark', 'light']),
   fontWeight: PropTypes.oneOf(['bold', 'medium', 'thin']),
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,

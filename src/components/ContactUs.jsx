@@ -1,87 +1,81 @@
-import React from 'react';
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+// import TextareaInput from './TextareaInput';
+// import SelectInput from './SelectInput';
 
-// Reusable TextInput Component
-const TextInput = ({ label, type, id, placeholder, required = false }) => {
+// Custom form for Mailchimp
+//
+const TextInput = ({ label, type, id, placeholder, required = false, inputRef }) => {
   return (
     <div className="w-full">
-      <label htmlFor={id} className="block mb-2 text-sm font-medium text-gray-300">{label}</label>
+      <label htmlFor={id} className="block mb-2 text-sm font-medium text-gray-300">
+        {label}
+      </label>
       <input
         type={type}
         id={id}
         className="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-gray-400"
         placeholder={placeholder}
         required={required}
+        ref={inputRef}
       />
     </div>
   );
 };
+const CustomMailchimpForm = ({ status, message, onValidated }) => {
+  let email, name;
+  
+  const submit = () => {
+    if (email && name && email.value.indexOf("@") > -1) {
+      onValidated({
+        EMAIL: email.value,
+        NAME: name.value,
+      });
+    }
+  };
 
-// Reusable TextareaInput Component
-const TextareaInput = ({ label, id, rows, placeholder }) => {
   return (
-    <div className="w-full">
-      <label htmlFor={id} className="block mb-2 text-sm font-medium text-gray-300">{label}</label>
-      <textarea
-        id={id}
-        rows={rows}
-        className="block p-2.5 w-full text-sm text-white bg-gray-700 rounded-lg shadow-sm border border-gray-600 focus:ring-primary-500 focus:border-primary-500 placeholder-gray-400"
-        placeholder={placeholder}
+    <div className="space-y-8">
+      {status === "sending" && <div style={{ color: "blue" }}>Sending...</div>}
+      {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
+      {status === "success" && <div style={{ color: "green" }} dangerouslySetInnerHTML={{ __html: message }} />}
+      
+      <TextInput
+        label="Your name"
+        type="text"
+        id="name"
+        placeholder="John Doe"
+        required
+        ref={(node) => (name = node)}
       />
-    </div>
-  );
-};
+      
+      <TextInput
+        label="Your email"
+        type="email"
+        id="email"
+        placeholder="name@domain.com"
+        required
+        ref={(node) => (email = node)}
+      />
 
-// Reusable SelectInput Component
-const SelectInput = ({ label, id, options }) => {
-  return (
-    <div className="w-full">
-      <label htmlFor={id} className="block mb-2 text-sm font-medium text-gray-300">{label}</label>
-      <select
-        id={id}
-        className="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-gray-400"
+      <button
+        onClick={submit}
+        className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
       >
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>{option.label}</option>
-        ))}
-      </select>
+        Subscribe
+      </button>
     </div>
   );
 };
 
 const ContactUs = () => {
+  const url = "//5efcdbc5622f4b1c419236c83868c899-us22.us22.list-manage.com/subscribe/post?u=zefzefzef&id=fnfgn";
+
   return (
     <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-      <form action="#" className="space-y-8">
-        {/* First Row: Name and Email */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <TextInput label="Your name" type="text" id="name" placeholder="John Doe" required />
-          <TextInput label="Your email" type="email" id="email" placeholder="name@flowbite.com" required />
-        </div>
-
-        <SelectInput
-          label="Select an option"
-          id="countries"
-          options={[
-            { label: "Choose a country", value: "" },
-            { label: "United States", value: "US" },
-            { label: "Canada", value: "CA" },
-            { label: "France", value: "FR" },
-            { label: "Germany", value: "DE" }
-          ]}
-        />
-        {/* Message */}
-        <TextareaInput label="Your message" id="message" rows="6" placeholder="Leave a comment..." />
-
-
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
-        >
-          Send message
-        </button>
-      </form>
+      <h2 className="text-xl font-bold text-gray-100 mb-6">Contact Us</h2>
+      <MailchimpSubscribe
+        url={url}
+      />
     </div>
   );
 };
