@@ -1,8 +1,6 @@
-
-import Heading from "src/components/shared/Heading"
-import InfoCard from "src/components/shared/InfoCard"
-
-import { experienceList } from "src/constants"
+import Heading from "src/components/shared/Heading";
+import InfoCard from "src/components/shared/InfoCard";
+import { experienceList } from "src/constants";
 
 const Experience = () => {
   return (
@@ -11,8 +9,10 @@ const Experience = () => {
         size="xl"
         fontWeight="bold"
         title="12 YEAR OF"
-        subtitle="EXPERIENCE"/>
-      <div className="flex flex-col items-center gap-6">
+        subtitle="EXPERIENCE"
+        className="items-center lg:items-start"
+      />
+      <div className="flex flex-col sm:flex-row sm:flex-wrap items-center gap-6 sm:gap-8 lg:gap-10">
         {experienceList.map((experience, index) => (
           <InfoCard
             key={index}
@@ -20,11 +20,12 @@ const Experience = () => {
             description={experience.description}
             dateRange={experience.dateRange}
             link={experience.link}
+            image={experience.image}  // Assuming an image might exist in the experience data
           />
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;

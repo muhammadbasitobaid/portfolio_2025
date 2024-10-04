@@ -1,18 +1,26 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle, variant = 'dark' }) => {
+const Heading = ({ 
+  size = 'md', 
+  fontWeight = 'medium', 
+  title, 
+  subtitle, 
+  variant = 'dark', 
+  className // New prop for custom container classes
+}) => {
   const titleClass = clsx(
     {
       'text-primary': variant === 'dark',
-      'text-black': variant === 'light'
+      'text-black': variant === 'light',
     },
     {
-      'text-8xl leading-none': size === 'xl',   // Large size (approx. 94px)
-      'text-6xl leading-none': size === 'lg',   // Large size (approx. 94px)
-      'text-5xl leading-none': size === 'md',   // Medium size (approx. 70px)
-      'text-2xl leading-none': size === 'sm',   // Small size (approx. 26px)
-      'text-base leading-none': size === 'xs',   // Extra Small size (approx. 18px)
+      // Responsive title sizes
+      'text-5xl sm:text-6xl md:text-7xl xl:text-8xl leading-none': size === 'xl',
+      'text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none': size === 'lg',
+      'text-3xl sm:text-4xl lg:text-3xl xl:text-4xl leading-none': size === 'md',
+      'text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none': size === 'sm',
+      'text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-none': size === 'xs',
     },
     {
       'font-bold': fontWeight === 'bold',
@@ -22,30 +30,23 @@ const Heading = ({ size = 'md', fontWeight = 'medium', title, subtitle, variant 
   );
 
   const subtitleClass = clsx(
-    'text-secondary',
+    'text-secondary font-bold',
     {
-      'text-8xl leading-[0.9]': size === 'xl',    // Large subtitle (approx. 94px)
-      'text-6xl leading-[0.9]': size === 'lg',    // Large subtitle (approx. 94px)
-      'text-base leading-[0.9]': size === 'md' || size === 'sm',  // Medium/Small subtitle (16px)
-      'text-xs leading-[0.9]': size === 'xs',   // Extra Small subtitle (12px)
-    },
-    {
-      'font-bold': size === 'lg' || size === 'xl',
+      // Subtitle sizes, slightly smaller than the title sizes
+      'text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight': size === 'xl',
+      'text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight': size === 'lg',
+      'text-2xl sm:text-3xl lg:text-2xl xl:text-3xl leading-tight': size === 'md',
+      'text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight': size === 'sm',
+      'text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight': size === 'xs',
     }
   );
 
   return (
-    <div className="flex flex-col items-start">
+    <div className={clsx("flex flex-col items-start", className)}>
       <h1 className={titleClass}>{title}</h1>
       {subtitle && <p className={subtitleClass}>{subtitle}</p>}
     </div>
   );
-};
-
-Heading.defaultProps = {
-  size: 'md',
-  fontWeight: 'medium',
-  subtitle: '',
 };
 
 Heading.propTypes = {
@@ -54,6 +55,7 @@ Heading.propTypes = {
   fontWeight: PropTypes.oneOf(['bold', 'medium', 'thin']),
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  className: PropTypes.string, // Custom class for container div
 };
 
 export default Heading;

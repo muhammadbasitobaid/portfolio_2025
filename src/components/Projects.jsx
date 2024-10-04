@@ -10,7 +10,9 @@ const Projects = () => {
       size="xl"
       fontWeight="bold"
       title="RECENT"
-      subtitle="PROJECTS"/>
+      subtitle="PROJECTS"
+      className="items-center lg:items-start"
+      />
     <div className="flex flex-col gap-6 items-center">
       {projectList.map((experience, index) => (
         <InfoCard

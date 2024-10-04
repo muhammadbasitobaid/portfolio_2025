@@ -10,7 +10,9 @@ const Tools = () => {
       size="xl"
       fontWeight="bold"
       title="PREMIUM"
-      subtitle="TOOLS"/>
+      subtitle="TOOLS"
+      className="items-center lg:items-start"
+    />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {tools.map((tool) => (
         <ToolCard

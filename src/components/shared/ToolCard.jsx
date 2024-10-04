@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const ToolCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-black p-4 rounded-lg flex items-center space-x-4 shadow-md w-72">
+    <div className="bg-black rounded-lg flex items-center space-x-4 shadow-md w-72 md:p-4 ">
       {/* Icon Container */}
         <img src={icon} alt={title} className="h-10 w-10" />
       {/* Text Content */}
